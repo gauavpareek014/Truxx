@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Register</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<style>
+
+body
+{
+	background: #f5f5f5;
+}
+
+h5
+{
+	font-weight: 400;
+}
+
+.container
+{
+	margin-top: 80px;
+	width: 400px;
+	height: 700px;
+}
+
+.tabs .indicator
+{
+	background-color: #e0f2f1;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container
+{
+	padding: 40px;
+	padding-top: 10px;
+}
+
+.confirmation-tabs-btn
+{
+	position: absolute;
+}
+</style>
+</head>
+  <body>
+
+
+<div id="register" class="col s12">
+		<form class="col s12">
+			<div class="form-container" style="width:50%">
+				<h3 class="teal-text">My Profile</h3>
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">First Name</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Last Name</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email" type="email" class="validate">
+						<label for="email">Email</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email" type="email" class="validate">
+						<label for="email">SSN</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email" type="email" class="validate">
+						<label for="email">Driving License number</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email-confirm" type="email" class="validate">
+						<label for="email-confirm">Email Confirmation</label>
+					</div>
+				</div>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" name="action">Save</button>
+				</center>
+			</div>
+		</form>
+	</div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
