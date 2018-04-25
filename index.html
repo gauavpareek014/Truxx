@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Truxx - DB Project</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<script type="text/javascript" src="js/Login.js"></script>
+<body>
+<?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["email"]);
+  $password = test_input($_POST["password"]);
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+	<img src="images/Truxxlogo.png"/>
+      
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+		<br><br>
+		<h2 style=color:white><span>"                 " </span></h2>
+        <h1 class="header center teal-text text-lighten-1">TRUXX</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Don't Rent it, Truxx it</h5>
+        </div>
+        <div class="row center">
+        <!--  <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a> -->
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+	
+    <div class="parallax"><img src="images/background1.png" alt="Unsplashed background img 1" style=opacity:0.2></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+           <!-- <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>-->
+            <h5 class="center">Login Here</h5>
+
+                     <form class="col s12" method="post">
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='email' name='email' id='email' />
+                <label for='email'>Enter your email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='password' name='password' id='password' />
+                <label for='password'>Enter your password</label>
+              </div>
+             
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <!-- Register.html <button type='submit' name='btn_login' class="btn-large waves-effect waves-light teal lighten-1" onclick="validate()">Login</button>-->
+				<a href="" id="login" class="btn-large waves-effect waves-light teal lighten-1" onclick="validate()">Login</a>
+              </div>
+            </center>
+          </form>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+     <!--     <h2 class="center brown-text"><i class="material-icons">group</i></h2> 
+            <h5 class="center">Register Here</h5>
+		<p>
+		
+		<span>Resgister as :</span>
+    <label>
+      <input class="with-gap" name="group3" type="radio"  />
+      <span>Driver</span>
+    </label>
+  
+    <label>
+      <input class="with-gap" name="group3" type="radio"  />
+      <span>Renter</span>
+    </label>
+  </p>
+            <!--<p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p> -->
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+       <!--     <h2 class="center brown-text"><i class="material-icons">settings</i></h2>-->
+          
+
+             <h5 >Register Here</h5>
+		<p>
+		
+		<span style=color:black>Register as :</span>
+    <label>
+      <input class="with-gap" name="group3" type="radio"  />
+      <span style=color:black>Driver</span>
+    </label>
+  <label>
+      
+      <span></span>
+    </label>
+    <label>
+      <input class="with-gap" name="group3" type="radio"  />
+      <span style=color:black>Renter</span>
+    </label>
+  </p>
+  <div class="row center">
+          <a href="Register.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign Up</a>
+        </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contact Us</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+    
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
