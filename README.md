@@ -43,7 +43,8 @@ Renters shall be able to book a trip, and drivers shall have an option of accept
 The User's can view their booking history details. Users also should be able to update and delete their profiles.
 
 <p align='center'>
-<img src='./images/Basic Use Case Diagram.png' width='600' alt='use case'/>
+ <img src='./images/Basic Use Case Diagram.png' width='600' alt='use case'/> 
+  
 </p>
 
 
@@ -58,28 +59,31 @@ The frontend uses HTML5, Vanilla JavaScript and Materialize CSS.
 ### Login Screen/Home page of Application
 
 <p align='center'>
-<img src='.images/Login-Final.png' width='600' alt='login'>
+
+  <img src='./images/Login-Final.png' width='600' />
 </p>
 
 ### Profile View for User
-
 <p align='center'>
-  <img src='.images/DriverProfileView-1-Final.png' width='600' alt='profile-view'>
+
+  <img src='./images/DriverProfileView-1-Final.png' width='600' />
+</p>
+<p align='center'>
+
+  <img src='./images/DriverProfileView-2-Final.png' width='600' />
 </p>
 
-<p align='center'>
-  <img src='.images/DriverProfileView-2-Final.png' width='600' alt='profile-view-1'>
-</p>
+
 
 
 ### Price List View
 <p align='center'>
-  <img src='.images/PriceList-Final.png' width='600' alt='profile-view-1'>
+  <img src='./images/PriceList-Final.png' width='600'  />
 </p>
 
 ### Truck Booking UI
 <p align='center'>
-  <img src='.images/TruckBooking-Final.png' width='600' alt='profile-view-1'>
+  <img src='./images/TruckBooking-Final.png' width='600'  />
 </p>
 
 
