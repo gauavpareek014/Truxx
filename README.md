@@ -55,7 +55,33 @@ We have implemented the database for the full use case, that includes 12 Tables 
 
 The frontend uses HTML5, Vanilla JavaScript and Materialize CSS.
 
-# Login Screen/Home page of Application
+### Login Screen/Home page of Application
+
+<p align='center'>
+<img src='.images/Login-Final.png' width='600' alt='login'>
+</p>
+
+### Profile View for User
+
+<p align='center'>
+  <img src='.images/DriverProfileView-1-Final.png' width='600' alt='profile-view'>
+</p>
+
+<p align='center'>
+  <img src='.images/DriverProfileView-2-Final.png' width='600' alt='profile-view-1'>
+</p>
+
+
+### Price List View
+<p align='center'>
+  <img src='.images/PriceList-Final.png' width='600' alt='profile-view-1'>
+</p>
+
+### Truck Booking UI
+<p align='center'>
+  <img src='.images/TruckBooking-Final.png' width='600' alt='profile-view-1'>
+</p>
+
 
 
 
