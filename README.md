@@ -38,11 +38,9 @@ Once booked and charged, no refund shall be processed even if the trip has been 
 
 ### Full Use Case
 
-Student can register and login to the system to make the appointment for golf cart or auto ride. After the ride, they can give the feedback and rate the driver or the ride. Manager (admin user) can login to make schedule for the auto line or golf cart to drivers on specific date. Driver can login to the system to check the schedule and finish the cart ride trip by filling the billing information. 
-
 Users (renters/drivers) can register and login to the system, as well as update and view their details. Drivers should register their trucks while registering themselves to the system. 
 Renters shall be able to book a trip, and drivers shall have an option of accepting/declining the trip.
-The system's task is to verify the 
+The User's can view their booking history details. Users also should be able to update and delete their profiles.
 
 <p align='center'>
 <img src='./images/Basic Use Case Diagram.png' width='600' alt='use case'/>
@@ -51,5 +49,13 @@ The system's task is to verify the
 
 ### Implemented Parts
 
-For the database, it implements the whole part of the full use case including 12 tables with generalizaiton/specialization relationship. In this web application, due to the time limitation, I only implemented some key functionalities of the student user part, which includes **looking up auto/cart schedule timetable, registration, log in, log out, make/look up/cancel appointments, look up/update profile**. 
+We have implemented the database for the full use case, that includes 12 Tables with generalizaiton/specialization relationship. User can register and login to the system. Renter can **book a trip** and **view their booking history**. Driver can also **view their booking history**. Users can **view the Price list**. Users can **update and delete** their profiles.
+
+## Web UI 
+
+The frontend uses HTML5, Vanilla JavaScript and Materialize CSS.
+
+# Login Screen/Home page of Application
+
+
 
