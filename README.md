@@ -100,7 +100,7 @@ The frontend uses HTML5, Vanilla JavaScript and Materialize CSS.
 
 ### Booking History for User
 <p align='center'>
-  <img src='./images/BookingHistory.png' width='600'  />
+  <img src='./images/BookingHistory.PNG' width='600'  />
 </p>
 
 ## EERD
