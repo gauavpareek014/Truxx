@@ -250,9 +250,9 @@ We are looking to implement following functionalities for the future work:
 
 
 ## References
-https://www.w3schools.com/sql/
-http://materializecss.com/
-https://www.tutorialspoint.com/restful/index.htm
+* https://www.w3schools.com/sql/
+* http://materializecss.com/
+* https://www.tutorialspoint.com/restful/index.htm
 
 
 
