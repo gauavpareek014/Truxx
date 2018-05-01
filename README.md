@@ -59,21 +59,28 @@ The frontend uses HTML5, Vanilla JavaScript and Materialize CSS.
 ### Login Screen/Home page of Application
 
 <p align='center'>
-
-  <img src='./images/Login-Final.png' width='600' />
+<img src='./images/Login-Final.png' width='600' />
 </p>
 
 ### Profile View for User
 <p align='center'>
-
-  <img src='./images/DriverProfileView-1-Final.png' width='600' />
+<img src='./images/DriverProfileView-1-Final.png' width='600' />
 </p>
+
 <p align='center'>
+<img src='./images/DriverProfileView-2-Final.png' width='600' />
+</p>
 
-  <img src='./images/DriverProfileView-2-Final.png' width='600' />
+### UI for Renter to enter Payment Details
+<p align='center'>
+<img src='./images/RenterPaymentDetails.png' width='600' />
 </p>
 
 
+### Edit Profile Page
+<p align='center'>
+<img src='./images/RenterEditprofile.png' width='600' />
+</p>
 
 
 ### Price List View
@@ -85,6 +92,153 @@ The frontend uses HTML5, Vanilla JavaScript and Materialize CSS.
 <p align='center'>
   <img src='./images/TruckBooking-Final.png' width='600'  />
 </p>
+
+### Trip Confirmation Page, Logout Button and Delete Profile Button
+<p align='center'>
+  <img src='./images/Renterlogout.png' width='600'  />
+</p>
+
+### Booking History for User
+<p align='center'>
+  <img src='./images/BookingHistory.png' width='600'  />
+</p>
+
+## EERD
+
+The database “truxx” has been design to have 12 tables, with the below listed assumptions and rules
+- The trip can be anywhere in Charlotte city and it  is the only city we are considering for our application. And hence the State is always North Carolina.
+- The Driver would need his SSN and Driving License Number in order to successfully register and that data is stored in the driver table.
+- Each renter is assigned with a driver by the system. 
+- The trip booking has a specific fare associated and varies with respect to the capacity of the truck and if loading/unloading option has been availed.
+- Trip table has all the details about the trip undertaken.
+
+<p align='center'>
+   <img src='./images/eerd.png' width='800' alt='Make Auto Appointment'/>
+</p>
+
+### Generalization / Specialization
+
+## Data Dictionary
+<p align='center'>
+   <img src='./images/desc-1.png' width='400' />
+   <img src='./images/desc-2.png' width='400' />
+</p>
+
+<p align='center'>
+   <img src='./images/desc-3.png' width='400' />
+   <img src='./images/desc-4.png' width='400' />
+</p>
+
+
+## SQL Implementation Details
+
+### Stored Procedure
+#### Stored Procedure 1 
+This stored procedure helps calculate the earnings for the driver as the name of the procedure suggests.
+```mysql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DriverEarnings`(IN param1 INT)
+BEGIN 
+Select p.Rate from truxx.trucks t,truxx.pricechart p where t.UserID= param1 and t.Capacity=p.Capacity;
+END ;
+```
+
+#### Stored Procedure 2
+This stored procedure helps fetch trip details, matching the firstname and lastname. Gives away all the details of the trips undertaken under the specific name.
+```mysql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `retrieveTripDetails`(
+in first_Name varchar(255),
+   in last_Name varchar(255))
+BEGIN
+select *
+   from trips
+   where RenterUserID in
+(
+select UserID
+           from users
+           where FirstName = first_Name and
+           LastName = last_Name
+);
+END ;
+
+```
+#### Stored Procedure 3
+This stored procedures assists in calculating the rate for this entire trip depending on the duration of the trip, using the function ‘calculateTimeDiff’ and along with it considers the type of the trip ( with and without driver) and the capacity of the truck ( staring from 250 units and the price starts from 35$)
+
+```mysql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calculateRate`(
+in start_time datetime,
+   in end_time datetime,
+   in cap int,
+   in triptype int,
+   out rateVal float)
+BEGIN
+declare hours float(22);
+   set hours = calculateTimeDiff(start_time, end_time);
+   
+   select (hours * (
+select rate
+                   from pricechart
+                   where capacity = cap and
+                   TripTypeID = triptype)) into rateVal;
+END ;
+
+
+```
+### Trigger
+#### Trigger 1
+This trigger deletes and updates all the relevant records from trips, renter, trucks, driver,users table if the login details are deleted for that particular entry
+ ```mysql
+ CREATE DEFINER=`root`@`localhost` TRIGGER Delete_trigger AFTER DELETE ON logindetails
+	FOR EACH ROW
+	BEGIN
+    delete from trips where RenterUserID=OLD.userID;
+    delete from renter where UserID=OLD.userID;
+     delete from trucks where UserID=OLD.userID;
+    delete from driver where UserID=OLD.userID;
+    delete from users where UserID=OLD.userID;
+	END
+  ```
+ 
+ #### Trigger 2
+ ```mysql
+CREATE DEFINER=`root`@`localhost` TRIGGER `truxx`.`trucks_BEFORE_DELETE` BEFORE DELETE ON `trucks` FOR EACH ROW
+BEGIN
+delete from trips where TruckID=OLD.TruckId;
+END
+ ```
+### Function
+This function calculates the duration of the trip by considering start time and end time of the trip in hours.
+```mysql
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculateTimeDiff`(start_time datetime, end_time datetime) RETURNS float
+BEGIN
+declare hours float;
+set hours = 0;
+select timestampdiff(HOUR, start_time, end_time) into hours;
+RETURN hours;
+END ;
+```
+### View
+
+This View has been created to reduce the load on the Database, whenever queried with respect to the Trip details for the particular driver. This view gets all the details of the driver, trips he had finished, the address where he picked and dropped off the renter.
+
+ ```mysql
+ 
+ CREATE VIEW `driverbookinghistory` AS SELECT 
+1 AS `TripStartTime`,
+1 AS `TripEndTime`,
+1 AS `FirstName`,
+1 AS `LastName`,
+1 AS `TripStartLocationStreetName`,
+1 AS `TripDestinationStreetName`,
+1 AS `TripTypeName`;
+ 
+ ```
+
+## Future Work
+
+## References
+
+
 
 
 
