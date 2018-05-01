@@ -206,7 +206,105 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `truxx`.`trucks_BEFORE_DELETE` BEFORE 
 BEGIN
 delete from trips where TruckID=OLD.TruckId;
 END
- ```
+```
+### REST Api
+- API to get Booking History
+```java
+@Stateless
+@Path("/trips")
+public class TripInfoFacadeREST {
+    TripsInfoDAO tripsInfoDAO = new TripsInfoDAO();
+    @Path("/user/{userId}")
+    @GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TripInfo> getRenterDetails(@PathParam("userId") int userId) {
+		return tripsInfoDAO.getTrips(userId);
+	} 
+        
+        @Path("/driver/{userId}")
+    @GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TripInfo> getDriverDetails(@PathParam("userId") int userId) {
+		return tripsInfoDAO.getTripsDriver(userId);
+	} 
+    
+}
+
+
+```
+- API to GET, PUT, POST and DELETE
+```
+@Stateless
+@Path("com.truxx.entities.pricechart")
+public class PricechartFacadeREST extends AbstractFacade<Pricechart> {
+
+    @PersistenceContext(unitName = "Truxx_final1PU")
+    private EntityManager em;
+
+    public PricechartFacadeREST() {
+        super(Pricechart.class);
+    }
+
+    @POST
+    @Override
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void create(Pricechart entity) {
+        super.create(entity);
+    }
+
+    @PUT
+    @Path("{id}")
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void edit(@PathParam("id") Integer id, Pricechart entity) {
+        super.edit(entity);
+    }
+
+    @DELETE
+    @Path("{id}")
+    public void remove(@PathParam("id") Integer id) {
+        super.remove(super.find(id));
+    }
+
+    @GET
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Pricechart find(@PathParam("id") Integer id) {
+        return super.find(id);
+    }
+
+    @GET
+    @Override
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Pricechart> findAll() {
+        return super.findAll();
+    }
+
+    @GET
+    @Path("{from}/{to}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Pricechart> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        return super.findRange(new int[]{from, to});
+    }
+
+    @GET
+    @Path("count")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String countREST() {
+        return String.valueOf(super.count());
+    }
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
+    }
+    
+}
+
+
+
+```
+for more API information check the services folder.
+
 ### Function
 This function calculates the duration of the trip by considering start time and end time of the trip in hours.
 ```mysql
