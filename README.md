@@ -1,9 +1,6 @@
 # Truxx
 The project is an full stack implementation including database design for the truxx.com.
 
-
-## Index
-
 ## Setup and Run
 
 * Netbeans IDE and Glassfish server installation
