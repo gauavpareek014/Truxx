@@ -117,6 +117,7 @@ The database “truxx” has been design to have 12 tables, with the below liste
 </p>
 
 ### Generalization / Specialization
+Users table has two types renter and driver.
 
 ## Data Dictionary
 <p align='center'>
@@ -235,6 +236,18 @@ This View has been created to reduce the load on the Database, whenever queried 
  ```
 
 ## Future Work
+We are looking to implement following functionalities for the future work:
+
+1. Drivers will have the option to accept/cancel the trip in a particular time windows. It will give flexibility to drivers according to their work schedule.
+2. Payment gateway integration to collection amount from renter with bank accounts.
+3. We will configure monthly fee charges for the driver to keep their truck visible on the website.
+4. There will be an initial registration fee for drivers.
+5. Background verification will be performed to check the validation of driving license, vehicle registration, and SSN details.
+6. We are looking to add advertisement on the website home page to generate revenue for our project.
+7. We are also looking to add an option for the user to register as both driver and renter.
+8. Google location map will be implemented to book a trip. It would be easier to have latitude and longitude for booking trip details.
+9. The mobile app version of this web application.
+
 
 ## References
 
